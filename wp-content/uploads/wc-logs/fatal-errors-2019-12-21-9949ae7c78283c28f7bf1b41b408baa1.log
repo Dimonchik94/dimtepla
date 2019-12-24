@@ -1,0 +1,32 @@
+2019-12-21T01:38:45+00:00 CRITICAL require(): Failed opening required '/var/www/dimtepla.com/wp-content/themes/dimtepla/includes/woocommerce/includes/wc-functions.php' (include_path='.:/usr/share/php') в /var/www/dimtepla.com/wp-content/themes/dimtepla/functions.php на строке 52
+
+2019-12-21T01:41:11+00:00 CRITICAL require(): Failed opening required '/var/www/dimtepla.com/wp-content/themes/dimtepla/includes/woocommerce/includes/wc-functions.php' (include_path='.:/usr/share/php') в /var/www/dimtepla.com/wp-content/themes/dimtepla/functions.php на строке 52
+
+2019-12-21T01:41:12+00:00 CRITICAL require(): Failed opening required '/var/www/dimtepla.com/wp-content/themes/dimtepla/includes/woocommerce/includes/wc-functions.php' (include_path='.:/usr/share/php') в /var/www/dimtepla.com/wp-content/themes/dimtepla/functions.php на строке 52
+
+2019-12-21T02:05:50+00:00 CRITICAL Uncaught Error: Call to undefined function war_dump() in /var/www/dimtepla.com/wp-content/themes/dimtepla/includes/enqueue-script-style.php:17
+Stack trace:
+#0 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(288): dimtepla_scripts('')
+#1 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/dimtepla.com/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/dimtepla.com/wp-includes/script-loader.php(2670): do_action('wp_enqueue_scri...')
+#4 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(288): wp_enqueue_scripts('')
+#5 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#6 /var/www/dimtepla.com/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#7 /var/www/dimtepla.com/wp-includes/general-template.php(2879): do_action('wp_head')
+#8 /var/www/dimtepla.com/wp-content/themes/dimtepla/header.php(20): wp_head()
+#9 /var/www/dimtepla.com/wp-includes/template.php(722): require_once('/var/www/dimtep...') в /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php на строке 82
+
+2019-12-21T02:06:13+00:00 CRITICAL Uncaught Error: Call to undefined function war_dump() in /var/www/dimtepla.com/wp-content/themes/dimtepla/includes/enqueue-script-style.php:24
+Stack trace:
+#0 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(288): dimtepla_scripts('')
+#1 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/dimtepla.com/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/dimtepla.com/wp-includes/script-loader.php(2670): do_action('wp_enqueue_scri...')
+#4 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(288): wp_enqueue_scripts('')
+#5 /var/www/dimtepla.com/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#6 /var/www/dimtepla.com/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#7 /var/www/dimtepla.com/wp-includes/general-template.php(2879): do_action('wp_head')
+#8 /var/www/dimtepla.com/wp-content/themes/dimtepla/header.php(20): wp_head()
+#9 /var/www/dimtepla.com/wp-includes/template.php(722): require_once('/var/www/dimtep...') в /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php на строке 82
+
