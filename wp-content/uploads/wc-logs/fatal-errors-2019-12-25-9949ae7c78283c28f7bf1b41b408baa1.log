@@ -1,0 +1,16 @@
+2019-12-25T00:22:45+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Meta_Box_Product_Data::get_product_type_options() in /var/www/dimtepla.com/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-product-data-panel.php:27
+Stack trace:
+#0 /var/www/dimtepla.com/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-product-data.php(33): include()
+#1 /var/www/dimtepla.com/wp-admin/includes/template.php(1343): WC_Meta_Box_Product_Data::output(Object(WP_Post), Array)
+#2 /var/www/dimtepla.com/wp-admin/edit-form-advanced.php(677): do_meta_boxes(Object(WP_Screen), 'normal', Object(WP_Post))
+#3 /var/www/dimtepla.com/wp-admin/post-new.php(75): include('/var/www/dimtep...')
+#4 {main}
+
+Next Exception: Call to undefined method WC_Meta_Box_Product_Data::get_product_type_options() in /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php:82
+Stack trace:
+#0 [internal function]: QM_Collector_PHP_Errors->exception_handler(Object(Error))
+#1 {main}
+  thrown в /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php на строке 82
+
+2019-12-25T00:48:06+00:00 CRITICAL require(): Failed opening required '/var/www/dimtepla.com/wp-content/themes/dimteplawoocommerce/includes/wc-functions.php' (include_path='.:/usr/share/php') в /var/www/dimtepla.com/wp-content/themes/dimtepla/functions.php на строке 64
+

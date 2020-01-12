@@ -49,6 +49,31 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
+
+        global $wpdb;
+        $result = $wpdb->get_results( "SELECT wp_posts. ID, post_title, meta_key, meta_value FROM wp_posts INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id ) WHERE post_type = 'product' && post_status = 'publish'" );
+
+        $posts_id = [];
+
+        foreach ($result as $post){
+            if ( ! in_array( "$post->ID", $posts_id ) ){
+                array_push( $posts_id[$post->ID], $post->ID );
+            }
+        }
+
+        foreach ($result as $post){
+            if ( ! in_array( "$post->post_title", $posts_id[$post->ID] ) ){
+                $posts_id[$post->ID]['title'] = $post->post_title;
+            }
+            $posts_id[$post->ID][$post->meta_key] = $post->meta_value;
+        }
+
+        //echo get_the_post_thumbnail( $post_id = 153, $size = 'post-thumbnail', $attr = '' );
+
+        echo '<pre>';
+		var_dump( $posts_id );
+        echo '</pre>';
+
 		?>
 
             <section id="home">
@@ -75,15 +100,27 @@ get_header();
             <a name="to-catalog"></a>
             <section id="catalog">
                 <div class="row">
-                    <div class="col-5">
-                        <div class="filter">
-                            <h2>Каталог</h2>
-                            <p>Площа для опалення</p>
-                            <span class="area">100-150 м<sup>2</sup></span><br>
-                            <span class="area">150-250 м<sup>2</sup></span><br>
-                            <span class="area">250-350 м<sup>2</sup></span><br>
-                            <p>Фильтр пошуку</p>
+                    <div class="filter">
+                        <h2>Каталог</h2>
+                        <p>Площа для опалення</p>
+                        <ul class="heating-area">
+                            <li>
+                                <input type="radio" name="area" id="option1" value="100-150" checked="checked">
+                                <label for='option1'>100-150 м<sup>2</sup></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="area" id="option2" value="150-250">
+                                <label for='option2'>150-250 м<sup>2</sup></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="area" id="option3" value="250-350">
+                                <label for='option3'>250-350 м<sup>2</sup></label>
+                            </li>
+                        </ul>
 
+                        <p>Фильтр пошуку</p>
+
+                        <div id="filter-content">
                             <span>Ціна, грн</span>
                             <br>
 
@@ -96,39 +133,36 @@ get_header();
                                 </div>
                             </div>
 
-                            <span>Суха маса, кг</span>
-                            <br>
-                            <span>Обсяг води, л</span>
-                            <br>
-                            <span>Обсяг топки, дм<sup>3</sup></span>
-                            <br>
-                            <span>Показник ККД, %</span>
-                            <br>
+                            <div id="filter-inputs">
+                                <label for="dry-weight"><span>Суха маса, кг</span></label>
+                                <input type="number" name="dry-weight" placeholder="159" >
 
-                            <div id="values-container">
-                                <hr id="hr-left">
-                                <span>159</span>
-                                <br>
-                                <span>90</span>
-                                <br>
-                                <span>100</span>
-                                <br>
-                                <span>92</span>
-                                <br>
-                                <hr id="hr-right">
+                                <label for="water-volume"><span>Обсяг води, л</span></label>
+                                <input type="number" name="water-volume" placeholder="90">
+
+                                <label for="furnace-volume"><span>Обсяг топки, дм<sup>3</sup></span></label>
+                                <input type="number" name="furnace-volume" placeholder="100">
+
+                                <label for="efficiency-indicators"><span>Показник ККД, %</span></label>
+                                <input type="number" name="efficiency-indicators" placeholder="92">
                             </div>
 
-                            <input type="button" value="Застосувати">
                         </div>
+
+                        <input type="button" value="Застосувати">
+
                     </div>
-                    <div class="col-7">
+
+<!-- //////////////PRODUCTS/////////////// -->
+
+                    <div class="products">
                         <div class="row">
-                            <div class="tovar col-6">
+                            <div class="product">
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="product-img">
                                         <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image1.png">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="product-desc">
                                         <p>
                                             Неус-Вичлаз <br>
                                             2800 грн <br>
@@ -140,12 +174,12 @@ get_header();
                                 </div>
                             </div>
 
-                            <div class="tovar col-6">
+                            <div class="product">
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="product-img">
                                         <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image1.png">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="product-desc">
                                         <p>
                                             Неус-Вичлаз <br>
                                             2800 грн <br>
@@ -157,13 +191,14 @@ get_header();
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
-                            <div class="tovar col-6">
+                            <div class="product">
                                 <div class="row">
-                                    <div class="col-5">
-                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image2.png">
+                                    <div class="product-img">
+                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image1.png">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="product-desc">
                                         <p>
                                             Неус-Вичлаз <br>
                                             2800 грн <br>
@@ -175,12 +210,12 @@ get_header();
                                 </div>
                             </div>
 
-                            <div class="tovar col-6">
+                            <div class="product">
                                 <div class="row">
-                                    <div class="col-5">
-                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image2.png">
+                                    <div class="product-img">
+                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image1.png">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="product-desc">
                                         <p>
                                             Неус-Вичлаз <br>
                                             2800 грн <br>
@@ -192,13 +227,14 @@ get_header();
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
-                            <div class="tovar col-6">
+                            <div class="product">
                                 <div class="row">
-                                    <div class="col-5">
-                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image3.png">
+                                    <div class="product-img">
+                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image1.png">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="product-desc">
                                         <p>
                                             Неус-Вичлаз <br>
                                             2800 грн <br>
@@ -210,12 +246,12 @@ get_header();
                                 </div>
                             </div>
 
-                            <div class="tovar col-6">
+                            <div class="product">
                                 <div class="row">
-                                    <div class="col-5">
-                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image3.png">
+                                    <div class="product-img">
+                                        <img class="cotel" src="<?php echo get_template_directory_uri();?>/assets/images/image1.png">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="product-desc">
                                         <p>
                                             Неус-Вичлаз <br>
                                             2800 грн <br>
@@ -227,7 +263,6 @@ get_header();
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -314,5 +349,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+
 get_footer();

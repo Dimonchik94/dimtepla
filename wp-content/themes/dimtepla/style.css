@@ -188,10 +188,33 @@ Section catalog
 
 *************/
 
+.heating-area{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.heating-area input{
+    visibility: hidden;
+}
+
+.heating-area label{
+    color: rgba(255, 255, 255, 0.55);
+    padding-left: 60px;
+    font-size: 34px;
+    letter-spacing: 2px;
+    line-height: 50px;
+    cursor: pointer;
+    padding-left: 0;
+    margin-left: -20px;
+}
+
+input:checked + label {
+    color: #fff;
+}
+
 .filter{
     width: 770px;
     background-color: #113969;
-    margin-left: -15px;
 }
 
 .filter h2{
@@ -212,9 +235,6 @@ Section catalog
     padding-left: 7px;
 }
 
-.area{
-    cursor: pointer;
-}
 
 .filter span{
     color: #fff;
@@ -234,9 +254,19 @@ Section catalog
     font-size: 36px;
     letter-spacing: 2px;
     line-height: 43px;
-    margin: 30px 0 10px 60px;
+    margin: 10px 0 10px 60px;
 }
 
+.filter input:hover{
+    opacity: 0.7;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 
 /****************
 
@@ -313,42 +343,58 @@ Section catalog
 
 ****************/
 
-#values-container{
-    position: absolute;
-    left: 450px;
-    bottom: 120px;
+#filter-inputs {
+    margin-top: 10px;
 }
 
-#values-container hr{
-    border: 1px solid #fff;
-    width: 0;
+#filter-inputs input{
+    width: 255px;
+    border-bottom: 0;
+    text-align: center;
+    margin: 0;
+    float: right;
+    margin-right: 40px;
+    opacity: 0.8;
+}
+
+#filter-inputs::before{
+    display: block;
+    position: absolute;
+    content: "";
+    width: 0px;
     height: 115px;
+    border: 1px solid #fff;
+    margin-left: 470px;
+    margin-top: 45px;
+}
+#filter-inputs::after{
+    display: block;
     position: absolute;
-}
-#values-container span{
-    padding-left: 105px;
-    cursor: pointer;
-}
-
-#hr-left{
-    margin-top: 40px;
+    content: "";
+    width: 0px;
+    height: 115px;
+    border: 1px solid #fff;
+    margin-left: 715px;
+    margin-top: -186px;
 }
 
-#hr-right{
-    right: -90px;
-    bottom: 30px;
+.products{
+    padding-left: 25px;
+}
+.products .row{
+    height: 300px;
 }
 
 .cotel{
     max-width: 250px;
 }
 
-.tovar{
+.product{
     min-width: 475px;
     margin: 20px 0;
 }
 
-.tovar p{
+.product p{
     font-size: 30px;
     letter-spacing: 2px;
     line-height: 47px;
@@ -356,7 +402,7 @@ Section catalog
     padding-top: 12px;
 }
 
-.tovar a{
+.product a{
     padding: 4px;
     text-decoration: none;
     font-size: 29px;
@@ -365,13 +411,13 @@ Section catalog
     color: #000000;
 }
 
-.tovar a:hover{
+.product a:hover{
     text-decoration: none;
     background-color: #113969;
     color: #fff;
 }
 
-.tovar hr{
+.product hr{
     border: 1px solid #1f1f1f;
     margin: 0;
     width: 155px;
@@ -635,6 +681,8 @@ footer p{
 
 #footer-logo{
     margin-top: 60px;
+    width: 220px;
+    height: 80px;
 }
 
 footer h5{

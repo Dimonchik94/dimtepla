@@ -1,0 +1,13 @@
+2019-12-27T01:55:18+00:00 CRITICAL Uncaught Error: Only variables can be passed by reference in /var/www/dimtepla.com/wp-content/themes/dimtepla/index.php:69
+Stack trace:
+#0 /var/www/dimtepla.com/wp-includes/template-loader.php(98): include()
+#1 /var/www/dimtepla.com/wp-blog-header.php(19): require_once('/var/www/dimtep...')
+#2 /var/www/dimtepla.com/index.php(17): require('/var/www/dimtep...')
+#3 {main}
+
+Next Exception: Only variables can be passed by reference in /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php:82
+Stack trace:
+#0 [internal function]: QM_Collector_PHP_Errors->exception_handler(Object(Error))
+#1 {main}
+  thrown в /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php на строке 82
+

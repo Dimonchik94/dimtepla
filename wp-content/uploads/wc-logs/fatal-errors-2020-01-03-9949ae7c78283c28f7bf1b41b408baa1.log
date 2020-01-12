@@ -1,0 +1,44 @@
+2020-01-03T08:38:56+00:00 CRITICAL Uncaught ParseError: syntax error, unexpected '}' in /var/www/dimtepla.com/wp-content/themes/dimtepla/woocommerce/includes/wc-functions.php:142
+Stack trace:
+#0 /var/www/dimtepla.com/wp-settings.php(497): include()
+#1 /var/www/dimtepla.com/wp-config.php(91): require_once('/var/www/dimtep...')
+#2 /var/www/dimtepla.com/wp-load.php(37): require_once('/var/www/dimtep...')
+#3 /var/www/dimtepla.com/wp-admin/admin-ajax.php(22): require_once('/var/www/dimtep...')
+#4 {main}
+
+Next Exception: syntax error, unexpected '}' in /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php:82
+Stack trace:
+#0 [internal function]: QM_Collector_PHP_Errors->exception_handler(Object(ParseError))
+#1 {main}
+  thrown в /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php на строке 82
+
+2020-01-03T08:39:05+00:00 CRITICAL Uncaught ParseError: syntax error, unexpected '}' in /var/www/dimtepla.com/wp-content/themes/dimtepla/woocommerce/includes/wc-functions.php:142
+Stack trace:
+#0 /var/www/dimtepla.com/wp-settings.php(497): include()
+#1 /var/www/dimtepla.com/wp-config.php(91): require_once('/var/www/dimtep...')
+#2 /var/www/dimtepla.com/wp-load.php(37): require_once('/var/www/dimtep...')
+#3 /var/www/dimtepla.com/wp-admin/admin-ajax.php(22): require_once('/var/www/dimtep...')
+#4 {main}
+
+Next Exception: syntax error, unexpected '}' in /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php:82
+Stack trace:
+#0 [internal function]: QM_Collector_PHP_Errors->exception_handler(Object(ParseError))
+#1 {main}
+  thrown в /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php на строке 82
+
+2020-01-03T11:27:52+00:00 CRITICAL Uncaught ParseError: syntax error, unexpected ''title'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /var/www/dimtepla.com/wp-content/themes/dimtepla/index.php:67
+Stack trace:
+#0 /var/www/dimtepla.com/wp-blog-header.php(19): require_once()
+#1 /var/www/dimtepla.com/index.php(17): require('/var/www/dimtep...')
+#2 {main}
+
+Next Exception: syntax error, unexpected ''title'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php:82
+Stack trace:
+#0 [internal function]: QM_Collector_PHP_Errors->exception_handler(Object(ParseError))
+#1 {main}
+  thrown в /var/www/dimtepla.com/wp-content/plugins/query-monitor/collectors/php_errors.php на строке 82
+
+2020-01-03T11:38:39+00:00 CRITICAL Object of class stdClass could not be converted to string в /var/www/dimtepla.com/wp-content/themes/dimtepla/index.php на строке 67
+
+2020-01-03T11:39:12+00:00 CRITICAL Object of class stdClass could not be converted to string в /var/www/dimtepla.com/wp-content/themes/dimtepla/index.php на строке 67
+
